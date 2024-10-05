@@ -1,4 +1,8 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
+
+import '../components/glscontainer.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -15,40 +19,35 @@ class _LoginPageState extends State<LoginPage> {
       body: Container(
         width: screen.width,
         height: screen.height,
-        color: Colors.blue,
+        decoration: const BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage('assets/bg1.png'), fit: BoxFit.cover)),
         child: SafeArea(
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              SizedBox(
-                height: 30,
+              const SizedBox(
+                height: 20,
               ),
-              Container(
-                width: screen.width * 0.35,
-                height: screen.height * 0.2,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(60),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black12,
-                      offset: Offset(19, 10),
-                      blurRadius: 5,
-                    )
-                  ],
-                  image: DecorationImage(
-                    image: AssetImage('assets/lock1.png'),
-                    invertColors: true,
-                    fit: BoxFit.fill,
-                  ),
-                ),
-              ),
-              SizedBox(),
-              Text(
-                'ENTER CREDENTIALS HERE!',
+              const Text(
+                'Hi!',
                 style: TextStyle(
                     fontSize: 20,
-                    fontWeight: FontWeight.w300,
-                    color: Colors.black),
-              )
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              Container(
+                  child: Stack(
+                children: [
+                  GlassBox(),
+                  Column(
+                    children: [],
+                  ),
+                ],
+              ))
             ],
           ),
         ),
