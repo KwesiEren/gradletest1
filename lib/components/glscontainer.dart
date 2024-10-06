@@ -10,9 +10,11 @@ class GlassBox extends StatefulWidget {
       this.spreadX,
       this.spreadY,
       this.borderRadius,
-      super.key});
+      super.key,
+      required this.child});
 
   Color? bgcolor;
+  final Widget child;
   num? height;
   num? width;
   double? borderRadius;
@@ -28,7 +30,7 @@ class _GlassBoxState extends State<GlassBox> {
   Widget build(BuildContext context) {
     var screen = MediaQuery.of(context).size;
     return Container(
-      child: Column(
+      child: Stack(
         children: [
           Container(
             decoration: const BoxDecoration(color: Colors.white),
@@ -62,6 +64,9 @@ class _GlassBoxState extends State<GlassBox> {
                                   .withOpacity(0.15),
                         ),
                       )))),
+          Container(
+            child: widget.child,
+          )
         ],
       ),
     );
